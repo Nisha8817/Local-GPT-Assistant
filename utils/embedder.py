@@ -1,10 +1,19 @@
 from sentence_transformers import SentenceTransformer
-import torch
+import os
 
 def get_embedder():
-    # Force CPU for Streamlit Cloud to avoid NotImplementedError
-    device = "cpu"
-    model_name = "sentence-transformers/all-MiniLM-L6-v2"
-    model = SentenceTransformer(model_name, device=device)
+    """
+    Loads a lightweight sentence-transformer model safely for CPU-only environments
+    (Streamlit Cloud compatible).
+    """
+    os.environ["TOKENIZERS_PARALLELISM"] = "false"
+    
+    # Use a lighter, CPU-friendly model
+    model_name = "sentence-transformers/all-MiniLM-L12-v2"
+
+    # Explicitly avoid device placement to prevent NotImplementedError
+    model = SentenceTransformer(model_name)
+    
     return model
+
 
