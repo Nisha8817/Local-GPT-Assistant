@@ -1,0 +1,19 @@
+# Ignore virtual environment
+.venv/
+venv/
+
+# Ignore cache, model and data artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.cache/
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.zip
+
+# Ignore Streamlit local config
+.streamlit/secrets.toml
