@@ -1,12 +1,12 @@
-# 📚 Local GPT Assistant (RAG-based Mini Project)
+#  Local GPT Assistant (RAG-based Mini Project)
 
-### 🚀 Overview
+### Overview
 A **local AI assistant** that lets users upload documents (TXT, PDF, DOCX, CSV), indexes them using embeddings (SentenceTransformers + FAISS), and answers context-based questions — 100% offline and OpenAI-free.
 
 If no answer is found in the data, it responds:
 > “I don’t have enough information in the uploaded documents.”
 
-### 🧠 Features
+### Features
 - Upload multiple files (`.pdf`, `.txt`, `.csv`, `.docx`)
 - Extracts and chunks text (~300–500 words each)
 - Embeds chunks with SentenceTransformers (`all-MiniLM-L6-v2`)
@@ -15,25 +15,25 @@ If no answer is found in the data, it responds:
 - No hallucinations — answers strictly from user-provided documents
 - Streamlit-based interactive interface
 
-### 🛠️ Tech Stack
+### Tech Stack
 - **Language:** Python 3.10+
 - **Libraries:** Streamlit, FAISS, SentenceTransformers, Transformers, PyTorch, NumPy, Pandas, PyPDF, python-docx
 - **Framework:** Streamlit UI
 - **Storage:** Local FAISS vector index
 
-### ⚙️ Setup Instructions
+###  Setup Instructions
 
 ```bash
-# 1️⃣ Clone the repo
+# 1. Clone the repo
 git clone https://github.com/Nisha8817/Local-GPT-Assistant.git
 cd Local-GPT-Assistant
 
-# 2️⃣ Create and activate virtual environment
+# 2. Create and activate virtual environment
 python -m venv .venv
 .venv\Scripts\activate  # On Windows
 
-# 3️⃣ Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4️⃣ Run Streamlit app
+# 4. Run Streamlit app
 streamlit run app.py
