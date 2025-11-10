@@ -1,12 +1,19 @@
-﻿.venv/
+﻿# Ignore Python virtual environments
+.venv/
 venv/
+
+# Ignore cache, temp and model files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pt
+*.log
 *.bin
+*.pt
 *.safetensors
 *.zip
-*.log
+*.dll
+
+# Ignore Streamlit local files
 .streamlit/secrets.toml
+
