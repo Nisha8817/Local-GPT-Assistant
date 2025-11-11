@@ -6,16 +6,16 @@ from utils.chunker import chunk_text
 from utils.embedder import get_embedder
 from utils.retriever import create_faiss_index, search_index
 
-# -----------------------
-# 🔧 Page setup
-# -----------------------
+
+#  Page setup
+
 st.set_page_config(page_title="Local GPT Assistant (Free RAG)", layout="centered")
 st.title("📚 Local GPT Document Assistant (Free Model)")
 st.write("Upload documents and ask questions from them — no API key, no internet, 100% local!")
 
-# -----------------------
-# 🧠 Initialize session state
-# -----------------------
+
+#  Initialize session state
+
 if "texts" not in st.session_state:
     st.session_state.texts = []
 if "index" not in st.session_state:
@@ -23,9 +23,9 @@ if "index" not in st.session_state:
 
 embedder = get_embedder()
 
-# -----------------------
-# 📂 Upload files
-# -----------------------
+
+#  Upload files
+
 files = st.file_uploader(
     "Upload PDF, TXT, DOCX, or CSV files",
     type=["pdf", "txt", "docx", "csv"],
@@ -47,9 +47,9 @@ if files:
         st.session_state.index = create_faiss_index(embeddings)
     st.success("📦 Vector database created!")
 
-# -----------------------
-# 💬 Question answering
-# -----------------------
+
+#  Question answering
+
 query = st.text_input("Ask a question from your documents")
 
 if query and st.session_state.index:
@@ -62,7 +62,7 @@ if query and st.session_state.index:
         context = "\n\n".join([st.session_state.texts[i] for i in I[0]])
         st.info("📄 Context retrieved from your files.")
 
-        # ✅ Try loading models safely with fallback
+        # Try loading models safely with fallback
         try:
             llm = pipeline("text2text-generation", model="google/flan-t5-base")
             model_used = "google/flan-t5-base"
@@ -71,7 +71,7 @@ if query and st.session_state.index:
             llm = pipeline("text-generation", model="distilgpt2")
             model_used = "distilgpt2"
 
-        # ✅ Initialize answer before use
+        # Initialize answer before use
         answer = ""
 
         # ✂️ Truncate context to prevent model overflow
@@ -95,7 +95,7 @@ if query and st.session_state.index:
                 st.error(f"⚠️ Model generation error: {e}")
                 answer = "❌ Unable to generate a valid answer."
 
-        # ✅ Display output neatly
+        #  Display output neatly
         st.divider()
         st.info(f"🧩 Model used: {model_used}")
         st.subheader("🧠 Answer")
