@@ -6,6 +6,10 @@ A **local AI assistant** that lets users upload documents (TXT, PDF, DOCX, CSV),
 If no answer is found in the data, it responds:
 > “I don’t have enough information in the uploaded documents.”
 
+
+##🔗 Live Demo
+https://local-gpt-assistant-dgsy35x2p2ew9djggedq7v.streamlit.app/ 
+
 ### Features
 - Upload multiple files (`.pdf`, `.txt`, `.csv`, `.docx`)
 - Extracts and chunks text (~300–500 words each)
